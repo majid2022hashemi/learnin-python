@@ -1,9 +1,18 @@
+# app/main.py
 from fastapi import FastAPI
-from db import get_connection
+from _02_strings import get_string_info   # تابع خروجی وب از 02_strings.py
+from _01_numbers import get_numbers_info  # تابع خروجی وب از 01_numbers.py
 
 app = FastAPI()
 
 @app.get("/")
-def root():
-    conn = get_connection()
-    return {"message": "Connected to PostgreSQL successfully!"}
+def read_root():
+    return {"message": "Visit /string for string info or /numbers for numbers info"}
+
+@app.get("/string")
+def string_info():
+    return get_string_info()
+
+@app.get("/numbers")
+def numbers_info():
+    return get_numbers_info()
