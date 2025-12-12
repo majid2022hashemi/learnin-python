@@ -1,18 +1,12 @@
-# app/main.py
 from fastapi import FastAPI
-from _02_strings import get_string_info   # تابع خروجی وب از 02_strings.py
-from _01_numbers import get_numbers_info  # تابع خروجی وب از 01_numbers.py
+from api.numbers import router as numbers_router
+from api.strings import router as strings_router
 
-app = FastAPI()
+app = FastAPI(title="Python Tutorial API")
+
+app.include_router(numbers_router, prefix="/numbers")
+app.include_router(strings_router, prefix="/strings")
 
 @app.get("/")
-def read_root():
-    return {"message": "Visit /string for string info or /numbers for numbers info"}
-
-@app.get("/string")
-def string_info():
-    return get_string_info()
-
-@app.get("/numbers")
-def numbers_info():
-    return get_numbers_info()
+def root():
+    return {"message": "Welcome to Python Tutorial API"}
