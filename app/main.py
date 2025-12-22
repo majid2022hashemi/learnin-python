@@ -10,6 +10,9 @@ from api.strings_fundamentals import router as strings_fundamentals_router
 from api.lists_dicts import router as lists_dicts_router
 from api.tuples_files import router as tuples_files_router
 from api.loops import router as loops_router
+from api import iterations
+
+
 
 app = FastAPI(title="Python Tutorial API")
 
@@ -20,7 +23,7 @@ app.include_router(strings_fundamentals_router, prefix="/strings-fundamentals")
 app.include_router(lists_dicts_router, prefix="/lists-dicts")
 app.include_router(tuples_files_router,prefix="/tuples_files")
 app.include_router(loops_router, prefix="/loops")
-
+app.include_router(iterations.router, prefix="/iterations")
 
 @app.get("/")
 def root():
