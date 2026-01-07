@@ -1,5 +1,5 @@
-class C2: ...                    # Make superclass objects
-class C3: ...
+class C2: pass                 # Make superclass objects
+class C3: pass
 
 class C1(C2, C3):                # Make and link class C1
     def setname(self, who):      # Assign name: C1.setname

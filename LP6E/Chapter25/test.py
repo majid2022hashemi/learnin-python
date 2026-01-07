@@ -1,0 +1,2 @@
+import dualmode
+dualmode.title()
