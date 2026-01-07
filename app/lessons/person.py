@@ -4,7 +4,8 @@ class Person:
         self.job  = job
         self.pay  = pay
 
-bob = Person('Bob Smith')                         # Test the class
-sue = Person('Sue Jones', job='dev', pay=100000)  # Runs __init__ automatically
-print(bob.name, bob.pay)                          # Fetch attached attributes
-print(sue.name, sue.pay) 
+if __name__ == '__main__':                  # When run for testing only
+    bob = Person('Bob Smith')
+    sue = Person('Sue Jones', job='dev', pay=100000)
+    print(bob.name, bob.pay)
+    print(sue.name, sue.pay)
