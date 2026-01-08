@@ -11,8 +11,11 @@ class Person:
 
     def __repr__(self):                                      # Added method
         return f'[Person: {self.name} ${self.pay:,}]'        # String to print
-    
 class Manager(Person):
+    def __init__(self, name, pay):
+        super().__init__(name, 'mgr', pay)
+
+
     def giveRaise(self, percent, bonus=.10):
         super().giveRaise(percent + bonus)
 
@@ -20,11 +23,9 @@ class Manager(Person):
 if __name__ == '__main__':
  
     bob = Person('Bob', pay=100)
+    sue = Person('sue', pay=95)
+    pat = Manager('Pat', pay=100)
 
-    tom = Manager('Tom', pay=100)
-
-    bob.giveRaise(.10)
-    tom.giveRaise(.10)
-
-    print(bob)
-    print(tom)
+    for obj in (bob, sue, pat):
+        obj.giveRaise(.10)
+        print(obj)
