@@ -1,13 +1,13 @@
 class AttrDisplay:
 
-    def gatherAttrs(self):
+    def __gatherAttrs(self):
         attrs = []
         for key in sorted(self.__dict__):
             attrs.append(f'{key}={getattr(self, key)}')
         return ', '.join(attrs)
     
     def __repr__(self):
-        return f'[{self.__class__.__name__}: {self.gatherAttrs()}]'
+        return f'[{self.__class__.__name__}: {self.__gatherAttrs()}]'
 
 if __name__ == '__main__':
     
